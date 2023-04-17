@@ -10,8 +10,14 @@ const tiposPrestamos = [prestamoJoven, prestamoGarantizado];
 
 // Crea nuevo prestamo y se agrega al array
 
-const prestamoJubilado = new Prestamo(3, 'Préstamo Jubliado', 60, 100, 0, 2500000, 'No', 'N/A', 0.60, 0.01, 0, 12);
+const prestamoJubilado = new Prestamo(3, 'Préstamo Jubliado', 80, 100, 0, 2500000, 'No', 'N/A', 0.60, 0.01, 0, 12);
 
 tiposPrestamos.push(prestamoJubilado);
-    
+
 console.log(tiposPrestamos);
+
+// Filtros de Préstamos
+
+const prestamoFiltro18a80 = tiposPrestamos.filter((prestamo) => prestamo.edadMinima == 18 && prestamo.edadMaxima <= 80);
+const prestamoFiltro35a80 = tiposPrestamos.filter((prestamo) => prestamo.edadMaxima > 35 && prestamo.edadMaxima <= 80);
+const prestamoFiltroMas80 = tiposPrestamos.filter((prestamo) => prestamo.edadMinima == 80);

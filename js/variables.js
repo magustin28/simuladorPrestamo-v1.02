@@ -11,4 +11,4 @@ let cantidadCuotas = 0;
 
 // Constantes
 
-const regexFecha = /^\d{2}\/\d{2}\/\d{4}$/;
+const regexFecha = /^(\d{2})(\d{2})(\d{4})$/;

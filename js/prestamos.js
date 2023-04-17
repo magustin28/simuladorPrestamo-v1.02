@@ -21,15 +21,15 @@ class Prestamo{
     // Mostrar detalle de prestamo
     mostrarPrestamo = function(){
         alert(
-            'Linea de Préstamo: ' + this.nombre + 
-            '.\nEdad mínima: ' + this.edadMinima +
-            ' años.\nEdad límite: ' + this.edadMaxima + 
-            ' años.\nMonto máximo a solicitar: ' + formatoPesos(this.montoMaxino) +
+            'Linea de Préstamo: "' + this.nombre + 
+            '"\nEdad mínima: ' + this.edadMinima +
+            ' años\nEdad límite: ' + this.edadMaxima + 
+            ' años\nMonto máximo a solicitar: ' + formatoPesos(this.montoMaxino) +
             '\nRequiere de garantía: ' + this.garantia +
-            '.\nTipo de garantía: ' + this.tipoGarantia + 
-            '.\nTasa : ' + this.tasa * 100 +
-            '%\nSeguro: ' + this.seguro * 100 +
-            '% sobre el capital solicitado.\nMáximo de cuotas a solicitar: ' + this.cuotasMaximo + ' cuotas.'
+            '\nTipo de garantía: ' + this.tipoGarantia + 
+            '\nTasa : ' + this.tasa * 100 +
+            '% TNA\nSeguro: ' + this.seguro * 100 +
+            '% sobre el capital solicitado\nMáximo de cuotas a solicitar: ' + this.cuotasMaximo + ' cuotas'
         )
     };
 }
