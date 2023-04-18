@@ -58,7 +58,7 @@ if (servicio == 3) {
 
         if (opcionPrestamo != 0) {
 
-            alert('Usted a seleccionado "' + buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).nombre + '"\n\nPara simular su préstamo vamos a necesitar que nos indique los siguientes datos:\n* Nivel de Ingresos\n* Monto del préstamo a solicitar\n* Cantidad de cuotas\n(Aceptar para continuar)')
+            alert('Usted a seleccionado "' + buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).nombre + '"\n\nPara simular su préstamo vamos a necesitar que nos indique los siguientes datos:\n* Nivel de Ingresos\n* Monto del préstamo a solicitar\n* Cantidad de cuotas\n(Aceptar para continuar)')
 
             do {
                 nivelIngresos = parseFloat(prompt('Nivel de Ingresos'));
@@ -68,22 +68,22 @@ if (servicio == 3) {
             } while (isNaN(nivelIngresos) || (nivelIngresos <= 0) || (nivelIngresos >= 1000001));
 
             do {
-                montoPrestamo = parseFloat(prompt('Monto del préstamo a solicitar\nMonto máximo a solicitar: ' + formatoPesos(buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMaxino)));
-                if (isNaN(montoPrestamo) || (montoPrestamo <= buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMinimo) || (montoPrestamo >= buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMaxino)) {
-                    alert('Ingrese un importe valido: mayor a ' + formatoPesos(buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMinimo) + ' y menor a ' + formatoPesos(buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMaxino));
+                montoPrestamo = parseFloat(prompt('Monto del préstamo a solicitar\nMonto máximo a solicitar: ' + formatoPesos(buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMaxino)));
+                if (isNaN(montoPrestamo) || (montoPrestamo <= buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMinimo) || (montoPrestamo >= buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMaxino)) {
+                    alert('Ingrese un importe valido: mayor a ' + formatoPesos(buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMinimo) + ' y menor a ' + formatoPesos(buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMaxino));
                 }
-            } while (isNaN(montoPrestamo) || (montoPrestamo <= buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMinimo) || (montoPrestamo >= buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMaxino));
+            } while (isNaN(montoPrestamo) || (montoPrestamo <= buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMinimo) || (montoPrestamo >= buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).montoMaxino));
 
             do {
-                cantidadCuotas = parseInt(prompt('Cantidad de cuotas a solicitar.\nCantidad máxima de cuotas a solicitar: ' + buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMaximo))
-                if (isNaN(cantidadCuotas) || (cantidadCuotas <= buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMinimo) || (cantidadCuotas >= (buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMaximo + 1))) {
-                    alert('Ingrese una cantidad de cuotas validas: mayor a ' + buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMinimo + ' y hasta ' + buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMaximo);
+                cantidadCuotas = parseInt(prompt('Cantidad de cuotas a solicitar.\nCantidad máxima de cuotas a solicitar: ' + buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMaximo))
+                if (isNaN(cantidadCuotas) || (cantidadCuotas <= buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMinimo) || (cantidadCuotas >= (buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMaximo + 1))) {
+                    alert('Ingrese una cantidad de cuotas validas: mayor a ' + buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMinimo + ' y hasta ' + buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMaximo);
                 }
-            } while (isNaN(cantidadCuotas) || (cantidadCuotas <= buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMinimo) || (cantidadCuotas >= (buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMaximo + 1)));
+            } while (isNaN(cantidadCuotas) || (cantidadCuotas <= buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMinimo) || (cantidadCuotas >= (buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).cuotasMaximo + 1)));
 
-            alert('Información ingresada:\n* Edad: ' + edad(fechaN) + ' años\n* Nivel de Ingresos: ' + formatoPesos(nivelIngresos) + '\n* Monto del préstamo a solicitar: ' + formatoPesos(montoPrestamo) + '\n* Cantidad de cuotas a solicitar: ' + cantidadCuotas + ' cuotas\nCondiciones del préstamo\nTNA: ' + (buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).tasa * 100) + '%\nSeguro: ' + (buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).seguro * 100) + '% sobre el capital\n(Aceptar para simular el préstamo)');
+            alert('Información ingresada:\n* Edad: ' + edad(fechaN) + ' años\n* Nivel de Ingresos: ' + formatoPesos(nivelIngresos) + '\n* Monto del préstamo a solicitar: ' + formatoPesos(montoPrestamo) + '\n* Cantidad de cuotas a solicitar: ' + cantidadCuotas + ' cuotas\nCondiciones del préstamo\nTNA: ' + (buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).tasa * 100) + '%\nSeguro: ' + (buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).seguro * 100) + '% sobre el capital\n(Aceptar para simular el préstamo)');
 
-            alert('Le detallamos la simulación de su préstamo:\n* Edad: ' + edad(fechaN) + ' años\n* Monto del préstamo a solicitar: ' + formatoPesos(montoPrestamo) + '\n* Tiene que ingresar ' + cantidadCuotas + ' cuotas de ' + formatoPesos(valorCuota(totalAPagar(montoPrestamo, buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).tasa, buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).seguro), cantidadCuotas)) + '.\nCapital: ' + formatoPesos(montoPrestamo) + '\nInteres: ' + formatoPesos(calculoInteres(montoPrestamo, buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).tasa, cantidadCuotas)) + '\nSeguro: ' + formatoPesos(calculoSeguro(montoPrestamo, buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).seguro)) + '\nImporte total: ' + formatoPesos(totalAPagar(montoPrestamo, calculoInteres(montoPrestamo, buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).tasa, cantidadCuotas), (calculoSeguro(montoPrestamo, buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).seguro)))) + '\nCFT: ' + cft(totalAPagar(montoPrestamo, calculoInteres(montoPrestamo, buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).tasa, cantidadCuotas), (calculoSeguro(montoPrestamo, buscarArrays(selectorFiltro(edad(fechaN)), opcionPrestamo).seguro))), montoPrestamo, cantidadCuotas) + '%');
+            alert('Le detallamos la simulación de su préstamo:\n* Edad: ' + edad(fechaN) + ' años\n* Monto del préstamo a solicitar: ' + formatoPesos(montoPrestamo) + '\n* Tiene que ingresar ' + cantidadCuotas + ' cuotas de ' + formatoPesos(buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).valorCuota(montoPrestamo, cantidadCuotas)) + '\nCapital: ' + formatoPesos(montoPrestamo) + '\nInteres: ' + formatoPesos(buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).calculoInteres(montoPrestamo, cantidadCuotas)) + '\nSeguro: ' + formatoPesos(buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).calculoSeguro(montoPrestamo)) + '\nIVA: ' + formatoPesos(buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).calculoIva(montoPrestamo, cantidadCuotas)) + ' (sobre Int. y Seg.)\nImporte total: ' + formatoPesos(buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).totalAPagar(montoPrestamo, cantidadCuotas)) + '\nCFT: ' + buscarArraysPorId(selectorFiltro(edad(fechaN)), opcionPrestamo).cft(montoPrestamo, cantidadCuotas) + '%');
         }
     }
 }

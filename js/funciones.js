@@ -96,33 +96,3 @@ function mensajePrestamoEdad(funcionEdad) {
 function formatoPesos(valor) {
     return valor.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' });
 }
-
-//Cálculo Interes
-function calculoInteres(montoPrestamo, tasa, cantidadCuotas) {
-    let interes = montoPrestamo * tasa / 12 * cantidadCuotas;
-    return interes;
-}
-
-//Cálculo Seguro
-function calculoSeguro(montoPrestamo, tasaSeguro) {
-    let seguro = montoPrestamo * tasaSeguro;
-    return seguro;
-}
-
-//Cálculo Total a Pagar
-function totalAPagar(montoPrestamo, interes, seguro) {
-    let totalAPagar = montoPrestamo + interes + seguro;
-    return totalAPagar;
-}
-
-//Cálculo Valor de la Cuota
-function valorCuota(totalAPagar, cantidadCuotas) {
-    let valorCuota = totalAPagar / cantidadCuotas;
-    return valorCuota;
-}
-
-//Cálculo CFT
-function cft(totalAPagar, montoPrestamo, cantidadCuotas) {
-    let cft = (((totalAPagar / montoPrestamo) - 1) / cantidadCuotas * 12 * 100).toFixed(2);
-    return cft;
-}
